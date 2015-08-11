@@ -112,17 +112,18 @@ var getUnanswered = function(tags) {
 		var errorElem = showError(error);
 		$('.search-results').append(errorElem);
 	});
+	console.log(result)
 };
 
 var getAnswerers = function(tags) {
 	var request = {
 		tag: tags,
-		// site: 'stackoverflow',
+		site: 'stackoverflow',
 		period: "all_time",
 	};
+	console.log("DEBUG: "+ request.tag)
 	var result = $.ajax({
-		// url: "http://api.stackexchange.com/2.2/tags/" + request.tag + "/top-answerers/" + request.period,
-		url: "http://api.stackexchange.com/2.2/tags/{tag}/top-answerers/{period}",
+		url: "http://api.stackexchange.com/2.2/tags/" + request.tag + "/top-answerers/" + request.period,
 		data: request,
 		dataType: "jsonp",
 		type: "GET",
