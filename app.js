@@ -71,7 +71,7 @@ var showAnswerers = function(answerers){
 // this function takes the results object from StackOverflow
 // and creates info about search results to be appended to DOM
 var showSearchResults = function(query, resultNum) {
-	var results = resultNum + ' results for <strong>' + query;
+	var results = resultNum + ' results for <strong>' + query + '</strong>';
 	return results;
 };
 
@@ -129,7 +129,7 @@ var getAnswerers = function(tags) {
 	.done(function(result){
 		var searchResults = showSearchResults(request.tag, result.items.length);
 
-		$('search-results').html(searchResults);
+		$('.search-results').html(searchResults);
 
 		$.each(result.items, function(i, item){
 			var answerers = showAnswerers(item);
