@@ -2,12 +2,14 @@ $(document).ready( function() {
 	$('.unanswered-getter').submit( function(event){
 		// zero out results if previous search has run
 		$('.results').html('');
+		$("input[name='answerers']").val('');
 		// get the value of the tags the user submitted
 		var tags = $(this).find("input[name='tags']").val();
 		getUnanswered(tags);
 	});
 	$('.inspiration-getter').submit(function(event){
 		$('.results').html('');
+		$("input[name='tags']").val('');
 		var tags = $(this).find("input[name='answerers']").val();
 		getAnswerers(tags);
 	});
