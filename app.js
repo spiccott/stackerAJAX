@@ -5,13 +5,11 @@ $(document).ready( function() {
 		// get the value of the tags the user submitted
 		var tags = $(this).find("input[name='tags']").val();
 		getUnanswered(tags);
-		console.log(tags)
 	});
 	$('.inspiration-getter').submit(function(event){
 		$('.results').html('');
 		var tags = $(this).find("input[name='answerers']").val();
 		getAnswerers(tags);
-		console.log(tags)
 	});
 });
 
@@ -112,7 +110,6 @@ var getUnanswered = function(tags) {
 		var errorElem = showError(error);
 		$('.search-results').append(errorElem);
 	});
-	console.log(result)
 };
 
 var getAnswerers = function(tags) {
@@ -121,7 +118,6 @@ var getAnswerers = function(tags) {
 		site: 'stackoverflow',
 		period: "all_time",
 	};
-	console.log("DEBUG: "+ request.tag)
 	var result = $.ajax({
 		url: "http://api.stackexchange.com/2.2/tags/" + request.tag + "/top-answerers/" + request.period,
 		data: request,
